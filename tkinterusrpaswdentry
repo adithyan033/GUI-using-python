@@ -1,0 +1,27 @@
+from tkinter import *
+
+root = Tk()
+root.title("Login Form")
+root.geometry("300x200")
+
+# Username
+Label(root, text="Username").pack(pady=5)
+username_entry = Entry(root, width=25)
+username_entry.pack()
+username_entry.insert(0, "admin")   # using insert()
+
+# Password
+Label(root, text="Password").pack(pady=5)
+password_entry = Entry(root, width=25, show="*")
+password_entry.pack()
+password_entry.insert(0, "12345")   # masked password
+
+def login():
+    user = username_entry.get()
+    pwd = password_entry.get()
+    print("Username:", user)
+    print("Password:", pwd)
+
+Button(root, text="Login", command=login).pack(pady=10)
+
+root.mainloop()
